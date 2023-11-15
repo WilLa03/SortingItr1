@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < AmountOfCircles; i++)
         {
-            manager.circles.Add(Instantiate(circle, transform));
+            manager.circles.Add(Instantiate(circle, transform).GetComponent<CircleBehavior>());
         }
     }
 }

@@ -7,6 +7,7 @@ public class CircleBehavior : MonoBehaviour
 {
     private Vector3 position;
     private Vector2 direction;
+    public float distance;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     void Start()
     {
