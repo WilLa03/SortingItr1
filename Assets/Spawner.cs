@@ -14,5 +14,6 @@ public class Spawner : MonoBehaviour
         {
             manager.circles.Add(Instantiate(circle, transform).GetComponent<CircleBehavior>());
         }
+        manager.halfLenght=manager.circles.Count /2;
     }
 }

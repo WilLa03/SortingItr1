@@ -6,26 +6,28 @@ public class CircleManager : MonoBehaviour
 {
     public List<CircleBehavior> circles;
     [SerializeField] private Transform target;
+    [SerializeField] private Sorting sorting;
+    public int halfLenght;
     void Awake()
     {
-        circles = new List<CircleBehavior>();
-        Random.InitState(0);
+        Random.InitState(1778725);
         circles.Clear();
+        
     }
-    
-    void Update()
+
+    public void DoUpdate()
     {
         foreach (var circle in circles)
         {
             circle.distance = Vector3.Distance(target.position, circle.transform.position);
+            circle.DoUpdate();
         }
-
-        int halflenght=circles.Count /2;
-        for (int i = 0; i < halflenght; i++)
+        sorting.DoSorting();
+        for (int i = 0; i < halfLenght; i++)
         {
-            circles[i].ChangeColorGrey();
+            circles[i].ChangeColorGreen();
         }
-        for (int i = halflenght; i < circles.Count; i++)
+        for (int i = halfLenght; i < circles.Count; i++)
         {
             circles[i].ChangeColorWhite();
         }
