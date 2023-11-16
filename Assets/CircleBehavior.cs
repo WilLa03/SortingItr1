@@ -38,15 +38,12 @@ public class CircleBehavior : MonoBehaviour
         gameObject.transform.position = newpos;
     }
 
-    public void ChangeColor()
+    public void ChangeColorWhite()
     {
-        if (_spriteRenderer.color==Color.white)
-        {
-            _spriteRenderer.color = Color.gray;
-        }
-        else if (_spriteRenderer.color==Color.gray)
-        {
-            _spriteRenderer.color = Color.white;
-        }
+        _spriteRenderer.color = Color.white;
+    }
+    public void ChangeColorGrey()
+    {
+        _spriteRenderer.color = Color.gray;
     }
 }

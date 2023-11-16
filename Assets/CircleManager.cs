@@ -6,7 +6,7 @@ public class CircleManager : MonoBehaviour
 {
     public List<CircleBehavior> circles;
     [SerializeField] private Transform target;
-    void Start()
+    void Awake()
     {
         circles.Clear();
     }
@@ -16,6 +16,16 @@ public class CircleManager : MonoBehaviour
         foreach (var circle in circles)
         {
             circle.distance = Vector3.Distance(target.position, circle.transform.position);
+        }
+
+        int halflenght=circles.Count /2;
+        for (int i = 0; i < halflenght; i++)
+        {
+            circles[i].ChangeColorGrey();
+        }
+        for (int i = halflenght; i < circles.Count; i++)
+        {
+            circles[i].ChangeColorWhite();
         }
     }
 }
