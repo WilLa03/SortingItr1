@@ -8,6 +8,8 @@ public class CircleManager : MonoBehaviour
     [SerializeField] private Transform target;
     void Awake()
     {
+        circles = new List<CircleBehavior>();
+        Random.InitState(0);
         circles.Clear();
     }
     

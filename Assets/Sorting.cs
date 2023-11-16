@@ -28,23 +28,18 @@ public class Sorting : MonoBehaviour
             case SortingType.Bubble:
                 for (int i = 0; i < _manager.circles.Count-1; i++)
                 {
-                    int temp = i;
-                    //TODO gör så att den fortsätter genom hela listan på samma sätt
-                    if (_manager.circles[temp].distance >
-                        _manager.circles[temp + 1].distance)
+                    for (int j = 0; j < _manager.circles.Count-i-1; j++)
                     {
-                        while (_manager.circles[temp].distance >
-                               _manager.circles[temp + 1].distance)
+                        if (_manager.circles[j].distance >
+                            _manager.circles[i].distance)
                         {
-                            (_manager.circles[temp + 1].distance, _manager.circles[temp].distance) = (_manager.circles[temp].distance, _manager.circles[temp + 1].distance);
-                            if (temp < _manager.circles.Count - 2)
-                            {
-                                temp++;
-                            }
+                            var data = _manager.circles[j].distance;
+                            _manager.circles[j].distance = _manager.circles[j+1].distance;
+                            _manager.circles[j+1].distance = data;
+                            Debug.Log("hej");
                         }
                     }
                 }
-                
                 break;
             case SortingType.Insert:
                 break;
