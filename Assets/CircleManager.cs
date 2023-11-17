@@ -12,7 +12,6 @@ public class CircleManager : MonoBehaviour
     {
         Random.InitState(1778725);
         circles.Clear();
-        
     }
 
     public void DoUpdate()
@@ -31,5 +30,14 @@ public class CircleManager : MonoBehaviour
         {
             circles[i].ChangeColorWhite();
         }
+    }
+
+    public void ResetAll()
+    {
+        foreach (var circle in circles)
+        {
+            circle.Remove();
+        }
+        circles.Clear();
     }
 }

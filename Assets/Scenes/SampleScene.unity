@@ -252,9 +252,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec06c1dc570c434eb8f06083f90dfff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AmountOfCircles: 50
+  AmountOfCircles: 10
   circle: {fileID: 8708002546410027105, guid: 51dfa0e394a1b37429098c2f44c98b51, type: 3}
   manager: {fileID: 2043612250}
+  AdditionalBalls: 50
 --- !u!4 &1775431420
 Transform:
   m_ObjectHideFlags: 0
@@ -301,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 2043612250}
   target: {fileID: 973386556}
+  spawner: {fileID: 1775431419}
 --- !u!4 &1844201749
 Transform:
   m_ObjectHideFlags: 0

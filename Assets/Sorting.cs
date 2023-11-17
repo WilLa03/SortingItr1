@@ -62,7 +62,6 @@ public class Sorting : MonoBehaviour
     }
     private void MergeSort(CircleBehavior[] arr, int start, int end)
     {
-        Debug.Log(end);
         if (start < end)
         {
             int mid = start + (end - start) / 2;

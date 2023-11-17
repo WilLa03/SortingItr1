@@ -19,8 +19,6 @@ public class CircleBehavior : MonoBehaviour
             direction=direction.normalized; 
         }
 
-        
-        
     }
     public void DoUpdate()
     {
@@ -46,5 +44,10 @@ public class CircleBehavior : MonoBehaviour
     public void ChangeColorGreen()
     {
         _spriteRenderer.color = Color.green;
+    }
+
+    public void Remove()
+    {
+        Destroy(gameObject);
     }
 }
