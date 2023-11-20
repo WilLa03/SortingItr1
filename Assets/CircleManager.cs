@@ -6,7 +6,7 @@ public class CircleManager : MonoBehaviour
 {
     public List<CircleBehavior> circles;
     [SerializeField] private Transform target;
-    [SerializeField] private Sorting sorting;
+    [SerializeField] public Sorting sorting;
     public int halfLenght;
     void Awake()
     {
