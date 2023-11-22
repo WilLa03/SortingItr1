@@ -304,6 +304,7 @@ MonoBehaviour:
   target: {fileID: 973386556}
   spawner: {fileID: 1775431419}
   filePath: C:\Temp\SortingItr1\
+  doAll: {fileID: 11400000, guid: 8cefb7e8c65255b4e95dd38cab8caa07, type: 2}
 --- !u!4 &1844201749
 Transform:
   m_ObjectHideFlags: 0
@@ -381,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _manager: {fileID: 2043612250}
-  sortingType: 1
+  enums: {fileID: 11400000, guid: 396b004125aaf5e45a745f12513b779c, type: 2}
 --- !u!1001 &8058734895035604745
 PrefabInstance:
   m_ObjectHideFlags: 0

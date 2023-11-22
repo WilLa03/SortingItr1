@@ -8,19 +8,16 @@ using Debug = UnityEngine.Debug;
 public class Sorting : MonoBehaviour
 {
     [SerializeField] private CircleManager _manager;
-    public SortingType sortingType;
-
-    public enum SortingType
-    {
-        Insert,
-        Merge,
-        Bubble
-    }
+    [SerializeField] public Enums enums;
+    
+    
+    
     public void DoSorting()
     {
-        switch (sortingType)
+        switch (enums.sortingType)
         {
-            case SortingType.Bubble:
+            case Enums.SortingType.Bubble:
+                Debug.Log("bubble");
                 for (int i = 0; i < _manager.circles.Count - i; i++)
                 {
                     for (int j = 0; j < _manager.circles.Count - i - 1; j++)
@@ -34,7 +31,8 @@ public class Sorting : MonoBehaviour
                     }
                 }
                 break;
-            case SortingType.Insert:
+            case Enums.SortingType.Insert:
+                Debug.Log("insert");
                 for (int i = 1; i < _manager.circles.Count; i++)
                 {
                     var check = _manager.circles[i].distance;
@@ -46,7 +44,8 @@ public class Sorting : MonoBehaviour
                     }
                 }
                 break;
-            case SortingType.Merge:
+            case Enums.SortingType.Merge:
+                Debug.Log("merge");
                 CircleBehavior[] startarray = new CircleBehavior[_manager.circles.Count];
                 for (int i = 0; i < _manager.circles.Count; i++)
                 {
