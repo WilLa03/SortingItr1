@@ -17,7 +17,6 @@ public class Sorting : MonoBehaviour
         switch (enums.sortingType)
         {
             case Enums.SortingType.Bubble:
-                Debug.Log("bubble");
                 for (int i = 0; i < _manager.circles.Count - i; i++)
                 {
                     for (int j = 0; j < _manager.circles.Count - i - 1; j++)
@@ -32,7 +31,6 @@ public class Sorting : MonoBehaviour
                 }
                 break;
             case Enums.SortingType.Insert:
-                Debug.Log("insert");
                 for (int i = 1; i < _manager.circles.Count; i++)
                 {
                     var check = _manager.circles[i].distance;
@@ -45,7 +43,6 @@ public class Sorting : MonoBehaviour
                 }
                 break;
             case Enums.SortingType.Merge:
-                Debug.Log("merge");
                 CircleBehavior[] startarray = new CircleBehavior[_manager.circles.Count];
                 for (int i = 0; i < _manager.circles.Count; i++)
                 {

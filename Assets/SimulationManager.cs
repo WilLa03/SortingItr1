@@ -20,16 +20,23 @@ public class SimulationManager : MonoBehaviour
     private List<float> finaltimes= new List<float>();
     private List<float> circlesTotal= new List<float>();
     private int circles;
+    private bool start;
 
     private void Start()
     {
         circlesTotal.Add(spawner.AmountOfCircles);
         circles = spawner.AmountOfCircles;
+        start = true;
     }
 
     private void Update()
     {
         float time = Time.realtimeSinceStartup;
+        if (start)
+        {
+            spawner.StartCircles();
+            start = false;
+        }
         if (ammoutOfUpdates >=100)
         {
             circles += spawner.AdditionalBalls;
@@ -49,34 +56,36 @@ public class SimulationManager : MonoBehaviour
         float time1 = Time.realtimeSinceStartup;
         finaltime = time1 - time;
         times.Add(finaltime);
-        if (finaltime > 0.1f)
+        if (finaltimes.Count != 0)
         {
-            Write(finaltimes, false);
-            Write(circlesTotal, true);
-            if (doAll.DoAll)
+            if (finaltimes[finaltimes.Count-1] > 0.1f)
             {
-                if (manager.sorting.enums.sortingType == Enums.SortingType.Insert)
+                circlesTotal.RemoveAt(circlesTotal.Count-1);
+                Write(finaltimes, false);
+                Write(circlesTotal, true);
+                if (doAll.DoAll)
                 {
-                    manager.sorting.enums.sortingType = Enums.SortingType.Bubble;
-                    DoReset();
+                    if (manager.sorting.enums.sortingType == Enums.SortingType.Insert)
+                    {
+                        manager.sorting.enums.sortingType = Enums.SortingType.Bubble;
+                        DoReset();
+                    }
+                    else if (manager.sorting.enums.sortingType == Enums.SortingType.Bubble)
+                    {
+                        manager.sorting.enums.sortingType = Enums.SortingType.Merge;
+                        DoReset();
+                    }
+                    else if (manager.sorting.enums.sortingType == Enums.SortingType.Merge)
+                    {
+                        doAll.DoAll = false;
+                    }
                 }
-                else if (manager.sorting.enums.sortingType == Enums.SortingType.Bubble)
+                if (!doAll.DoAll)
                 {
-                    manager.sorting.enums.sortingType = Enums.SortingType.Merge;
-                    DoReset();
-                }
-                else if (manager.sorting.enums.sortingType == Enums.SortingType.Merge)
-                {
-                    doAll.DoAll = false;
+                    Debug.Log(Time.realtimeSinceStartup);
+                    SceneManager.LoadScene(0);
                 }
             }
-            if (!doAll.DoAll)
-            {
-                DoReset();
-                Debug.Log(Time.realtimeSinceStartup);
-                SceneManager.LoadScene(0);
-            }
-            
         }
     }
 
@@ -86,11 +95,16 @@ public class SimulationManager : MonoBehaviour
         times.Clear();
         finaltimes.Clear();
         circlesTotal.Clear();
+        circlesTotal.Add(spawner.AmountOfCircles);
+        circles = spawner.AmountOfCircles;
+        manager.halfLenght = 0;
+        start = true;
     }
     private void OnDisable()
     {
         Write(finaltimes, false);
         Write(circlesTotal, true);
+        doAll.DoAll = false;
     }
 
     private void Write(List<float> list, bool ballnr)

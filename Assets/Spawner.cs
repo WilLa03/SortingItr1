@@ -8,19 +8,19 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject circle;
     [SerializeField] private CircleManager manager;
     public int AdditionalBalls;
-
-    void Start()
+    
+    public void InstantiateCircles()
     {
-        for (int i = 0; i < AmountOfCircles; i++)
+        for (int j = 0; j < AdditionalBalls; j++)
         {
             manager.circles.Add(Instantiate(circle, transform).GetComponent<CircleBehavior>());
         }
         manager.halfLenght=manager.circles.Count /2;
     }
 
-    public void InstantiateCircles()
+    public void StartCircles()
     {
-        for (int j = 0; j < AdditionalBalls; j++)
+        for (int i = 0; i < AmountOfCircles; i++)
         {
             manager.circles.Add(Instantiate(circle, transform).GetComponent<CircleBehavior>());
         }
