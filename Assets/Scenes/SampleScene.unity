@@ -255,7 +255,7 @@ MonoBehaviour:
   AmountOfCircles: 100
   circle: {fileID: 8708002546410027105, guid: 51dfa0e394a1b37429098c2f44c98b51, type: 3}
   manager: {fileID: 2043612250}
-  AdditionalBalls: 1000
+  AdditionalBalls: 500
 --- !u!4 &1775431420
 Transform:
   m_ObjectHideFlags: 0
